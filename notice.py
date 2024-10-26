@@ -31,10 +31,11 @@ if response.status_code == 200:
 	count = 0
 	if notices_list:
 		for li in notices_list.find_all('li'):
-			print(li.get_text(strip=True))
+			print("[{}] {}".format(count, li.get_text(strip=True)))
 			notice.append(li.get_text(strip=True))
 			#str = "https://www.canada.ca/".format(li.find('a')['href'])
 			link.append("https://www.canada.ca/{}".format(li.find('a')['href']))
+			count = count + 1
 	else:
 		print("No 2015 section found.")
 
